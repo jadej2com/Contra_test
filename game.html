@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Project Contra — Game Prototype</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a1a; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Courier New', monospace; }
+    canvas { display: block; image-rendering: pixelated; }
+    #controls { color: #667; font-size: 11px; margin-top: 8px; text-align: center; }
+    a { color: #5588aa; font-size: 12px; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+  <script src="src/config.js?v=16"></script>
+  <script src="src/entities/MapRenderer.js?v=86"></script>
+  <script src="src/entities/PlayerRenderer.js?v=16"></script>
+  <script src="src/entities/EnemyRenderer.js?v=16"></script>
+  <script src="src/entities/BossRenderer.js?v=16"></script>
+  <script src="src/entities/BulletRenderer.js?v=16"></script>
+  <script src="src/scenes/GameScene.js?v=5"></script>
+  <script>
+    const game = new Phaser.Game({
+      type: Phaser.CANVAS,
+      width: 1024,
+      height: 700,
+      backgroundColor: '#0a0a1a',
+      parent: document.body,
+      scene: GameScene,
+      pixelArt: true,
+      scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+      },
+    });
+  </script>
+  <div id="controls">← → : Walk &nbsp;|&nbsp; Z / ↑ / Space : Jump &nbsp;|&nbsp; X : Shoot</div>
+  <a href="map-viewer.html">← Map Viewer</a>
+  <a href="index.html" style="margin-left:16px;">Character Showcase →</a>
+</body>
+</html>
