@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Project Contra — Map Viewer — 11200×700 (16:1)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a1a; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Courier New', monospace; }
+    canvas { display: block; image-rendering: pixelated; }
+    a { color: #5588aa; margin-top: 8px; font-size: 12px; }
+    #legend { display: flex; gap: 16px; margin-top: 8px; color: #ccc; font-size: 11px; user-select: none; }
+    #legend .dot { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+  <script src="src/config.js?v=16"></script>
+  <script src="src/entities/MapRenderer.js?v=86"></script>
+  <script src="src/scenes/MapViewerScene.js?v=26"></script>
+  <script>
+    const game = new Phaser.Game({
+      type: Phaser.CANVAS,
+      width: 1024,
+      height: 700,
+      backgroundColor: '#0a0a1a',
+      parent: document.body,
+      scene: MapViewerScene,
+      pixelArt: true,
+      scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+      },
+    });
+  </script>
+  <div id="legend">
+    <span><span class="dot" style="background:#4488dd;"></span>Upper (y=540)</span>
+    <span><span class="dot" style="background:#44cc44;"></span>MidR (y=610)</span>
+    <span><span class="dot" style="background:#ddcc44;"></span>MidL (y=590)</span>
+    <span><span class="dot" style="background:#dd4444;"></span>Bottom (y=650)</span>
+  </div>
+  <a href="index.html">← Back to Character Showcase</a>
+  <a href="game.html" style="margin-left:16px;">Play Game →</a>
+</body>
+</html>
